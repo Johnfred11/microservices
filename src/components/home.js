@@ -89,7 +89,7 @@ function Home() {
                         </div>
                     </div>
                 </nav>
-                <MDBModal show={showModal}  tabIndex='-1' onClick={modalClose}>
+                <MDBModal show={showModal}  tabIndex='-1' onClick={modalClose} className="modal-lg">
                 {/*<!-- Modal login-->*/}
                 {/* <!-- Pills navs --> */}
                 <MDBModalDialog className="modal-dialog">
@@ -113,7 +113,7 @@ function Home() {
                             <div className={`tab-pane fade ${classLogin}`} id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                                 <form>
                                 <div className="text-center mb-3">
-                                    <p>Sign in with:</p>
+                                    <p>Iniciar Sesión con:</p>
                                     <button type="button" class="btn btn-link btn-floating mx-1">
                                     <i className="fab fa-facebook-f"></i>
                                     </button>
@@ -135,14 +135,14 @@ function Home() {
 
                                 {/* <!-- Email input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="email" id="loginName" className="form-control" />
-                                    <label className="form-label" for="loginName">Email or username</label>
+                                    <input type="email" id="loginName" className="form-control" required />
+                                    <label className="form-label" for="loginName">Correo Electronico</label>
                                 </div>
 
                                 {/* <!-- Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="loginPassword" className="form-control" />
-                                    <label className="form-label" for="loginPassword">Password</label>
+                                    <input type="password" id="loginPassword" className="form-control" required/>
+                                    <label className="form-label" for="loginPassword">Contraseña</label>
                                 </div>
 
                                 {/* <!-- 2 column grid layout --> */}
@@ -168,14 +168,14 @@ function Home() {
 
                                 {/* <!-- Register buttons --> */}
                                 <div className="text-center">
-                                    <p>Not a member? <a href="#!">Register</a></p>
+                                    <p>¿No estas registrado? <a href="#!">Registrarse</a></p>
                                 </div>
                                 </form>
                             </div>
                             <div className={`tab-pane fade ${classRegister}`} id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                                 <form>
                                 <div className="text-center mb-3">
-                                    <p>Sign up with:</p>
+                                    <p>Registrarse con:</p>
                                     <button type="button" className="btn btn-link btn-floating mx-1">
                                     <i className="fab fa-facebook-f"></i>
                                     </button>
@@ -193,50 +193,56 @@ function Home() {
                                     </button>
                                 </div>
 
-                                <p className="text-center">or:</p>
+                                <p className="text-center">ó:</p>
 
                                 {/* <!-- Name input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerName" className="form-control" />
-                                    <label className="form-label" for="registerName">Name</label>
+                                    <input type="text" id="registerName" className="form-control" required/>
+                                    <label className="form-label" for="registerName">Nombre</label>
+                                    <input type="text" id="registerLastName" className="form-control" required/>
+                                    <label className="form-label" for="registerLastName">Apellido</label>
                                 </div>
 
                                 {/* <!-- Username input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerUsername" className="form-control" />Name
+                                    <input type="text" id="registerUsername" className="form-control" required/>
                                     <label className="form-label" for="registerUsername">Username</label>
                                 </div>
 
                                 {/* <!-- Email input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="email" id="registerEmail" class="form-control" />
+                                    <input type="email" id="registerEmail" class="form-control" required/>
                                     <label className="form-label" for="registerEmail">Email</label>
                                 </div>
 
                                 {/* <!-- Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="registerPassword" className="form-control" />
+                                    <input type="password" id="registerPassword" className="form-control" required/>
                                     <label className="form-label" for="registerPassword">Password</label>
                                 </div>
 
                                 {/* <!-- Repeat Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="registerRepeatPassword" className="form-control" />
+                                    <input type="password" id="registerRepeatPassword" className="form-control" required/>
                                     <label className="form-label" for="registerRepeatPassword">Repeat password</label>
                                 </div>
-
+                                
+                                <div className="form-outline mb-4">
+                                    <input type="text" id="registerUsername" className="form-control" required/>
+                                    <label className="form-label" for="registerUsername">Dirección</label>
+                                </div>
                                 {/* <!-- Checkbox --> */}
                                 <div className="form-check d-flex justify-content-center mb-4">
                                     <input className="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
                                     aria-describedby="registerCheckHelpText" />
                                     <label className="form-check-label" for="registerCheck">
-                                    I have read and agree to the terms
+                                    He leido los Terminos y Condiciones.
                                     </label>
                                 </div>
 
                                 {/* <!-- Submit button --> */}
                                 <div className="d-flex justify-content-center">
-                                    <button type="submit" className="btn btn-primary btn-block mb-3">Sign in</button>
+                                    <button type="submit" className="btn btn-primary btn-block mb-3">Registrarse</button>
                                 </div>
                                 </form>
                             </div>
@@ -246,7 +252,7 @@ function Home() {
                         </MDBModalBody>
                         <MDBModalFooter className="justify-content-center">
                             <MDBBtn color='secondary' onClick={changeShowModal}>
-                                Close
+                                Cerrar
                             </MDBBtn>
                         </MDBModalFooter>
                     </MDBModalContent>
