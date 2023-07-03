@@ -163,7 +163,7 @@ function Home() {
 
                                 {/* <!-- Submit button --> */}
                                 <div className="d-flex justify-content-center">
-                                    <Link to="/profile" type="submit" className="btn btn-primary btn-block mb-4">Sign in</Link>
+                                    <Link to="/profile" type="submit" target="_self" className="btn btn-primary btn-block mb-4">Sign in</Link>
                                 </div>
 
                                 {/* <!-- Register buttons --> */}
