@@ -84,6 +84,9 @@
 *::after {
   box-sizing: border-box;
 }
+.btn-primary{
+  background-color: #8E24AA;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   :root {
@@ -417,6 +420,9 @@ legend {
   font-size: calc(1.275rem + 0.3vw);
   line-height: inherit;
 }
+
+
+
 @media (min-width: 1200px) {
   legend {
     font-size: 1.5rem;

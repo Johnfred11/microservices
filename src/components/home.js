@@ -1,6 +1,7 @@
 import "./styles.css";
 
 import React, { useState } from 'react';
+import {Link, BrowserRouter} from 'react-router-dom';
 import {
     MDBContainer,
     MDBNavbar,
@@ -16,9 +17,6 @@ import {
     MDBDropdownMenu,
     MDBDropdownItem,
     MDBCollapse,
-  } from 'mdb-react-ui-kit';
-
-  import {
     MDBModal,
     MDBModalDialog,
     MDBModalContent,
@@ -27,7 +25,7 @@ import {
     MDBModalBody,
     MDBModalFooter,
   } from 'mdb-react-ui-kit';
-import Register_Login from "./modalRegister";
+
 
   import img1 from './assets/img/portfolio/fullsize/1.jpg';
   import img2 from "./assets/img/portfolio/fullsize/2.jpg";
@@ -43,6 +41,32 @@ function Home() {
     const [showModal, setShowModal] = useState(false);
     const changeShowModal = () => setShowModal(!showModal);
 
+    const [classLogin, setClassLogin] = useState("show active");
+    const [classRegister, setClassRegister] = useState("");
+    const [classBtnLogin, setClassBtnLogin] = useState("active");
+    const [classBtnRegister, setClassBtnRegister] = useState("");
+
+    const updateClassRegister = () => {
+        setClassBtnRegister("active");
+        setClassBtnLogin("")
+        setClassRegister("show active");
+        setClassLogin("");
+    };
+    
+    const updateClassLogin = () => {
+        setClassBtnRegister("");
+        setClassBtnLogin("active")
+        setClassLogin("show active");
+        setClassRegister("");
+    };
+
+    function modalClose(e){
+        const formModal = document.getElementById("contentModal").contains(e.target)
+        if(!formModal){
+            changeShowModal();
+        }
+    }
+
     return (
         <>
                 {/*<!-- Navigation-->*/}
@@ -55,30 +79,30 @@ function Home() {
                                 <li className="nav-item"><a className="nav-link pt-2" href="#about">Nosotros</a></li>
                                 <li className="nav-item"><a className="nav-link pt-2" href="#services">Servicios</a></li>
                                 <li className="nav-item"><a className="nav-link pt-2" href="#contact">Contactenos</a></li>
-                                <li className="nav-item"><a className="nav-link pt-2" href="#portfolio">Trabaja con Nosotros</a></li>
-                                <li className="nav-item px-2"><MDBBtn outline color='light' href="http://google.com">
+                                <li className="nav-item"><Link className="nav-link pt-2" to="/trabaja-con-nosotros">Trabaja con Nosotros</Link></li>
+                                <li className="nav-item px-2"><MDBBtn outline color='light' href="#pills-register" onClick={() =>{changeShowModal(); updateClassRegister();}}>
                                 Registrarse
                                 </MDBBtn></li>
-                                <li className="nav-item px-2"><li className="nav-item px-2"><MDBBtn rippleColor='dark' color='light' onClick={changeShowModal}>Iniciar Sesión</MDBBtn></li></li>             
+                                <li className="nav-item px-2"><li className="nav-item px-2"><MDBBtn rippleColor='dark' href="#pills-login" color='light' onClick={() =>{changeShowModal(); updateClassLogin();}}>Iniciar Sesión</MDBBtn></li></li>             
                             </ul>
                 
                         </div>
                     </div>
                 </nav>
-                <MDBModal show={showModal}  tabIndex='-1'>
+                <MDBModal show={showModal}  tabIndex='-1' onClick={modalClose}>
                 {/*<!-- Modal login-->*/}
                 {/* <!-- Pills navs --> */}
                 <MDBModalDialog className="modal-dialog">
-                    <MDBModalContent className="px-5">                          
+                    <MDBModalContent className="px-5" id="contentModal">                          
             <           MDBModalHeader className="justify-content-center">                          
                             <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                                 <li className="nav-item" role="presentation">
-                                    <a className="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
-                                    aria-controls="pills-login" aria-selected="true">Login</a>
+                                    <a className={`nav-link ${classBtnLogin}`} id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+                                    aria-controls="pills-login" aria-selected="true" onClick={updateClassLogin}>Login</a>
                                 </li>
                                 <li className="nav-item" role="presentation">
-                                    <a className="nav-link" id="tab-register" data-mdb-toggle="pill" role="tab"
-                                    aria-controls="pills-register" aria-selected="false">Register</a>
+                                    <a className={`nav-link ${classBtnRegister}`} id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+                                    aria-controls="pills-register" aria-selected="false" onClick={updateClassRegister}>Register</a>
                                 </li>
                             </ul>
                         </MDBModalHeader>
@@ -86,7 +110,7 @@ function Home() {
                 {/* <!-- Pills navs --> */}
                             {/* <!-- Pills content --> */}
                             <div className="tab-content">
-                            <div className="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                            <div className={`tab-pane fade ${classLogin}`} id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                                 <form>
                                 <div className="text-center mb-3">
                                     <p>Sign in with:</p>
@@ -138,7 +162,9 @@ function Home() {
                                 </div>
 
                                 {/* <!-- Submit button --> */}
-                                <button type="submit" className="btn btn-primary btn-block mb-4">Sign in</button>
+                                <div className="d-flex justify-content-center">
+                                    <Link to="/profile" type="submit" className="btn btn-primary btn-block mb-4">Sign in</Link>
+                                </div>
 
                                 {/* <!-- Register buttons --> */}
                                 <div className="text-center">
@@ -146,7 +172,7 @@ function Home() {
                                 </div>
                                 </form>
                             </div>
-                            <div className="tab-pane fade ${}" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+                            <div className={`tab-pane fade ${classRegister}`} id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                                 <form>
                                 <div className="text-center mb-3">
                                     <p>Sign up with:</p>
@@ -209,7 +235,9 @@ function Home() {
                                 </div>
 
                                 {/* <!-- Submit button --> */}
-                                <button type="submit" className="btn btn-primary btn-block mb-3">Sign in</button>
+                                <div className="d-flex justify-content-center">
+                                    <button type="submit" className="btn btn-primary btn-block mb-3">Sign in</button>
+                                </div>
                                 </form>
                             </div>
                             </div>
@@ -234,7 +262,7 @@ function Home() {
                             </div>
                             <div className="col-lg-8 align-self-baseline">
                                 <p className="text-white-75 mb-5">Descubre MicroServices: ¡la solución perfecta para tu negocio! Simplifica, maximiza y acelera con nosotros. ¡Únete a la revolución hoy!</p>
-                                <a className="btn btn-primary bg-purpl-500 btn-xl" href="#about">Descubre</a>
+                                <a className="btn btn-primary btn-xl" href="#about">Descubre</a>
                             </div>
                         </div>
                     </div>
@@ -441,6 +469,7 @@ function Home() {
                 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
                 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->*/}
                 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
         </>
     )
 }
