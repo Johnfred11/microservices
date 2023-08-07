@@ -45,7 +45,9 @@ function Home() {
     const [classRegister, setClassRegister] = useState("");
     const [classBtnLogin, setClassBtnLogin] = useState("active");
     const [classBtnRegister, setClassBtnRegister] = useState("");
+    const [classAlertSuccess, setClassAlertSuccess] = useState("d-none");
 
+    /*Clase para ocultar y mostrar el formulario de registro en alternancia con el de login */
     const updateClassRegister = () => {
         setClassBtnRegister("active");
         setClassBtnLogin("")
@@ -53,13 +55,27 @@ function Home() {
         setClassLogin("");
     };
     
+    /*Clase para ocultar y mostrar el formulario de login en alternancia con el de registro */
     const updateClassLogin = () => {
         setClassBtnRegister("");
         setClassBtnLogin("active")
         setClassLogin("show active");
         setClassRegister("");
+        setClassAlertSuccess("d-none");
     };
 
+    /*Clase para mostrar el mensaje de cuenta creada del formulario de registro */
+    const updateClassAlertSuccess = () => {
+        if(classAlertSuccess == "d-none"){
+            setClassAlertSuccess("d-block");
+        }else{
+            setClassAlertSuccess("d-none");
+        }
+
+
+    };
+
+    /*Clase para ocultar y mostrar el modal con los formularios de registro y login, se muestran al dar click en Registro o Iniciar sesion en la Landing Page */
     function modalClose(e){
         const formModal = document.getElementById("contentModal").contains(e.target)
         if(!formModal){
@@ -70,6 +86,7 @@ function Home() {
     return (
         <>
                 {/*<!-- Navigation-->*/}
+            
                 <nav className="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
                     <div className="container px-4 px-lg-5">
                         <a className="navbar-brand" href="#page-top">MicroServices</a>
@@ -173,7 +190,8 @@ function Home() {
                                 </form>
                             </div>
                             <div className={`tab-pane fade ${classRegister}`} id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-                                <form>
+                                <div className={classAlertSuccess}><p className="alert alert-success"><i className="fas fa-check-circle me-3"></i>Te has Registrado exitosamente! Verifica tu correo electronico e <a>Inicia Sesión</a></p></div>
+                                <form >
                                 <div className="text-center mb-3">
                                     <p>Registrarse con:</p>
                                     <button type="button" className="btn btn-link btn-floating mx-1">
@@ -242,7 +260,7 @@ function Home() {
 
                                 {/* <!-- Submit button --> */}
                                 <div className="d-flex justify-content-center">
-                                    <button type="submit" className="btn btn-primary btn-block mb-3">Registrarse</button>
+                                    <button className="btn btn-primary btn-block mb-3" onClick={updateClassAlertSuccess} >Registrarse</button>
                                 </div>
                                 </form>
                             </div>
@@ -258,6 +276,7 @@ function Home() {
                     </MDBModalContent>
                 </ MDBModalDialog>
                 </MDBModal>
+
                 {/*<!-- Masthead-->*/}
                 <header className="masthead">
                     <div className="container px-4 px-lg-5 h-100">
@@ -475,7 +494,6 @@ function Home() {
                 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
                 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->*/}
                 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
         </>
     )
 }

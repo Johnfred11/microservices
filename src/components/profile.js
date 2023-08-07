@@ -1,15 +1,23 @@
 import {Link, Routes, BrowserRouter} from 'react-router-dom';
 import React, { useState } from 'react';
 
+import AccountInformation from './AccountInformation';
+import orders from './services';
+
+
+
+
 function Profile(){
+
+    const [contentAccount, setContentAccount] = useState(AccountInformation);
 
     return(
         <>
 
-        <section style={{backgroundColor: "#eee"}}>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <section style={{backgroundColor: "#eee"}} className="pb-5">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
             {/* <!-- Container wrapper --> */}
-            <div className="container-fluid">
+            <div className="container-fluid ">
                 {/* <!-- Toggle button --> */}
                 <button
                 className="navbar-toggler"
@@ -125,150 +133,59 @@ function Profile(){
             {/* <!-- Container wrapper --> */}
             </nav>
             {/* <!-- Navbar --> */}
-            <div className="container">
+            <div className="container d-flex py-5">
             {/* <!-- Navbar --> */}
-                <div className="row">
-                <div className="col-lg-4">
-                    <div className="card mb-4">
-                    <div className="card-body text-center">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style={{width: 150+"px"}} alt="Avatar" />
-                    <h5 class="mb-2"><strong>Usuario Prueba</strong></h5>
-                    <p class="text-muted">Pymes <span class="badge bg-primary">Preferencial</span></p>
-                        <p className="text-muted mb-4">Bucaramanga, Santander</p>
-                        <div className="d-flex justify-content-center mb-2">
-                        <button type="button" className="btn btn-primary">Editar</button>
-                        <button type="button" className="btn btn-outline-primary ms-1">Configuracion</button>
+                
+                <div>
+                    {/* sidebar profile*/}
+                    <div>
+                        <div className="card mb-4">
+                        <div className="card-body text-center">
+                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/8.webp" class="rounded-circle mb-3" style={{width: 150+"px"}} alt="Avatar" />
+                        <h5 class="mb-2"><strong>Usuario Prueba</strong></h5>
+                        <p class="text-muted">Pymes <span class="badge bg-primary">Preferencial</span></p>
+                            <p className="text-muted mb-4">Bucaramanga, Santander</p>
+                            <div className="d-flex justify-content-center mb-2">
+                            <button type="button" className="btn btn-primary">Editar</button>
+                            <button type="button" className="btn btn-outline-primary ms-1">Configuracion</button>
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                    <div className="card mb-4 mb-lg-0">
-                    <div className="card-body p-0">
-                        <ul className="list-group list-group-flush rounded-3">
-                        <li className="list-group-item d-flex justify-content-start align-items-center p-3">
-                            <i class="fas fa-user-tie"></i>
-                            <p className="mx-5 mb-0">Informacion de la cuenta</p>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-start align-items-center p-3">
-                            <i class="fas fa-list-check"></i>
-                            <p className="mx-5 mb-0">Historial Ordenes</p>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-start align-items-center p-3">
-                            <i class="fas fa-briefcase"></i>
-                            <p className="mx-5 mb-0">Ordenes Activas</p>
-                        </li>
-                        <li className="list-group-item d-flex justify-content-start align-items-center p-3">
-                            <i class="fas fa-bell"></i>
-                            <p className="mx-5 mb-0">Notificaciones</p>
-                        </li>
-                        
-                        <li className="list-group-item d-flex justify-content-start align-items-center p-3">
-                            <i class="fas fa-credit-card"></i>
-                            <p className="mx-5 mb-0">Medios de pago</p>
-                        </li>
-                        </ul>
-                    </div>
-                    </div>
+                        </div>
+                        <div className="card mb-4 mb-lg-0">
+                        <div className="card-body p-0">
+                            <ul className="list-group list-group-flush rounded-3">
+                            <li className="list-group-item d-flex justify-content-start align-items-center p-3">
+                                <i class="fas fa-user-tie"></i>
+                                <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}} onClick={() => setContentAccount(AccountInformation)}>Informacion de la cuenta</a>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-start align-items-center p-3">
+                                <i class="fas fa-list-check"></i>
+                                <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}} onClick={() => setContentAccount(orders)}>Historial Ordenes</a>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-start align-items-center p-3">
+                                <i class="fas fa-briefcase"></i>
+                                <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>Ordenes Activas</a>
+                            </li>
+                            <li className="list-group-item d-flex justify-content-start align-items-center p-3">
+                                <i class="fas fa-bell"></i>
+                                <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>Notificaciones</a>
+                            </li>
+                                        
+                            <li className="list-group-item d-flex justify-content-start align-items-center p-3">
+                                <i class="fas fa-credit-card"></i>
+                                <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>Medios de pago</a>
+                            </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div> 
+                    {/* sidebar profile*/}
                 </div>
-                <div className="col-lg-8">
-                    <div className="card mb-4">
-                    <div className="card-body">
-                        <div className="row">
-                        <div className="col-sm-3">
-                            <p className="mb-0">Nombre Completo</p>
-                        </div>
-                        <div className="col-sm-9">
-                            <p className="text-muted mb-0">Carlos Lopez</p>
-                        </div>
-                        </div>
-                        <hr />
-                        <div className="row">
-                        <div className="col-sm-3">
-                            <p className="mb-0">Correo Electronico</p>
-                        </div>
-                        <div className="col-sm-9">
-                            <p className="text-muted mb-0">example@example.com</p>
-                        </div>
-                        </div>
-                        <hr/>
-                        <div className="row">
-                        <div className="col-sm-3">
-                            <p className="mb-0">Celular</p>
-                        </div>
-                        <div className="col-sm-9">
-                            <p className="text-muted mb-0">(57) 322 4282 443</p>
-                        </div>
-                        </div>
-                        <hr/>
-                        <div className="row">
-                        <div className="col-sm-3">
-                            <p className="mb-0">Direccion</p>
-                        </div>
-                        <div className="col-sm-9">
-                            <p className="text-muted mb-0">Calle 12 #45-67, Barrio El Prado</p>
-                        </div>
-                        </div>
-                        <hr/>
-                        <div className="row">
-                        <div className="col-sm-3">
-                            <p className="mb-0">Documento</p>
-                        </div>
-                        <div className="col-sm-9">
-                            <p className="text-muted mb-0">123456789-0</p>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    <div className="row">
-                    <div className="col-md-6">
-                        <div className="card mb-4 mb-md-0">
-                        <div className="card-body">
-                            <p className="mb-4"><span className="text-primary font-italic me-1">Ordenes</span> En Curso
-                            </p>
-                            <p className="mb-1" style={{fontSize: .77+"rem"}}>Limpieza de Instalaciones</p>
-                            <div className="progress rounded" style={{height: 5+"px"}}>
-                            <div className="progress-bar" role="progressbar" style={{width: 80+"%"}} aria-valuenow="80"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p className="mt-4 mb-1" style={{fontSize: .77+"rem"}}>Mantenimiento Preventivo</p>
-                            <div className="progress rounded" style={{height: 5+"px"}}>
-                            <div className="progress-bar" role="progressbar" style={{width: 72+"%"}} aria-valuenow="72"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p className="mt-4 mb-1" style={{fontSize: .77+"rem"}}>Adecuacion Zonas Verdes</p>
-                            <div className="progress rounded" style={{height: 5+"px"}}>
-                            <div className="progress-bar" role="progressbar" style={{width: 89+"%"}} aria-valuenow="89"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            
-                        </div>
-                        </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div className="card mb-4 mb-md-0">
-                        <div className="card-body">
-                            <p className="mb-4"><span className="text-primary font-italic me-1">Ordenes</span> Historial
-                            </p>
-                            <p className="mb-1" style={{fontSize: .77+"rem"}}>Satisfaccion del Cliente</p>
-                            <div className="progress rounded" style={{height: 5+"px"}}>
-                            <div className="progress-bar" role="progressbar" style={{width: 80+"%"}} aria-valuenow="80"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p className="mt-4 mb-1" style={{fontSize: .77+"rem"}}>Ordenes Ultimo Mes</p>
-                            <div className="progress rounded" style={{height: 5+"px"}}>
-                            <div className="progress-bar" role="progressbar" style={{width: 72+"%"}} aria-valuenow="72"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                            <p className="mt-4 mb-1" style={{fontSize: .77+"rem"}}>Puntuación Usuario</p>
-                            <div className="progress rounded" style={{height: 5+"px"}}>
-                            <div className="progress-bar" role="progressbar" style={{width: 89+"%"}} aria-valuenow="89"
-                                aria-valuemin="0" aria-valuemax="100"></div>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
+                <div className='w-100 ms-4'>
+                    {/* Account Information*/}
+                    {contentAccount}
                 </div>
-                </div>
+                
             </div>
         </section>
         </>
