@@ -21,8 +21,12 @@ function ShowServices(){
 export default function orders(){
     return(
         <>
-            <h2>Historial de servicios</h2>
-            <div className='d-flex row'>
+            <h2 className='text-center'>Historial de servicios</h2>
+            <ul className='d-flex list-group flex-row'>
+                <li className='list-group-item me-4 text-decoration-none active'>En curso</li>
+                <li className='list-group-item ms-4 text-decoration-none'>Finalizadas</li>
+            </ul>
+            <div className='d-flex row mt-0'>
                 <ShowServices />
                 <ShowServices />
             </div>
