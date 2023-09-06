@@ -1,19 +1,41 @@
 import React, { useState } from 'react';
 
-
+import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 
 function ShowServices(){
     return(
         <>
-           <div className="card h-auto">
-            <div className="card-body">
-                <h5 className="card-title">Título de la tarjeta</h5>
-                <h6 className="card-subtitle mb-2 text-muted">Subtítulo de la tarjeta</h6>
-                <p className="card-text">Un texto de ejemplo rápido para colocal cerca del título de la tarjeta y componer la mayor parte del contenido de la tarjeta.</p>
-                <a href="#" className="card-link">Enlace de tarjeta</a>
-                <a href="#" className="card-link">Otro enlace</a>
-            </div>
-            </div> 
+            <tr>
+                <td>
+                    <div className='d-flex align-items-center'>
+                    <img
+                        src='https://img.freepik.com/vector-premium/concepto-icono-servicio-limpieza-o-dibujos-animados-planos-mantenimiento-hogar-limpieza_101884-1503.jpg?w=2000'
+                        alt=''
+                        style={{ width: '45px', height: '45px' }}
+                        className='rounded-4'
+                    />
+                    <div className='ms-3'>
+                        <p className='fw-bold mb-1'>Servicios Generales</p>
+                        <p className='text-muted mb-0'>Empresarial</p>
+                    </div>
+                    </div>
+                </td>
+                <td>
+                    <p className='fw-normal mb-1'>Ana Merlano</p>
+                    <p className='text-muted mb-0'>Tecnico en limpieza de superficies</p>
+                </td>
+                <td>
+                    <MDBBadge color='success' pill>
+                    Activo
+                    </MDBBadge>
+                </td>
+                <td>1'800.000</td>
+                <td>
+                    <MDBBtn color='link' rounded size='sm'>
+                    Ver detalles
+                    </MDBBtn>
+                </td>
+            </tr>
         </>
     )
 }
@@ -26,11 +48,21 @@ export default function orders(){
                 <li className='list-group-item me-4 text-decoration-none active'>En curso</li>
                 <li className='list-group-item ms-4 text-decoration-none'>Finalizadas</li>
             </ul>
-            <div className='d-flex row mt-0'>
-                <ShowServices />
-                <ShowServices />
-            </div>
-            
+            <MDBTable align='middle'>
+                <MDBTableHead>
+                    <tr>
+                    <th scope='col'>Servicio</th>
+                    <th scope='col'>Tecnic@</th>
+                    <th scope='col'>Estado</th>
+                    <th scope='col'>Costo</th>
+                    <th scope='col'>Actions</th>
+                    </tr>
+                </MDBTableHead>
+                <MDBTableBody>
+                    <ShowServices />
+                    <ShowServices />
+                </MDBTableBody>
+            </MDBTable> 
         </>
     )
 }

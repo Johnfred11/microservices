@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {Link, BrowserRouter} from 'react-router-dom';
+import "./styles.css";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 import {
   MDBContainer,
   MDBNavbar,
@@ -15,6 +20,7 @@ import {
   MDBDropdownItem,
   MDBCollapse,
 } from 'mdb-react-ui-kit';
+
 
 export default function Header() {
   const [showBasic, setShowBasic] = useState(false);
@@ -56,10 +62,10 @@ export default function Header() {
                 {/* <!-- Left links --> */}
                 </div>
                 {/* <!-- Collapsible wrapper --> */}
-                <div class="input-group rounded px-5 w-75">
+                <div className="input-group rounded px-5 w-75">
                         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                        <span class="input-group-text border-0" id="search-addon">
-                            <i class="fas fa-search"></i>
+                        <span className="input-group-text border-0" id="search-addon">
+                            <i className="fas fa-search"></i>
                         </span>
                     </div>
                 
@@ -72,7 +78,17 @@ export default function Header() {
 
                 {/* <!-- Notifications --> */}
                 <div className="dropdown">
-                    
+                <MDBDropdown>
+                    <MDBDropdownToggle className='hidden-arrow p-1 bg-transparent shadow-0 notifications align-items-center '>
+                        <i className="fas fa-bell me-3 text-reset" ></i>
+                        <span className="badge rounded-pill badge-notification bg-danger">1</span>
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu>
+                        <MDBDropdownItem link childTag='button'>
+                        No hay notificaciones
+                        </MDBDropdownItem>
+                    </MDBDropdownMenu>
+                </MDBDropdown>
                     <a
                     className="text-reset me-3 dropdown-toggle hidden-arrow"
                     href="#"
@@ -81,8 +97,7 @@ export default function Header() {
                     data-mdb-toggle="dropdown"
                     aria-expanded="false"
                     >
-                    <i className="fas fa-bell"></i>
-                    <span className="badge rounded-pill badge-notification bg-danger">1</span>
+                    
                     </a>
                     <ul
                     className="dropdown-menu dropdown-menu-end"
@@ -101,38 +116,27 @@ export default function Header() {
                     </ul>
                 </div>
                 {/* <!-- Avatar --> */}
-                <div className="dropdown">
-                    <a
-                    className="dropdown-toggle d-flex align-items-center hidden-arrow"
-                    href="#"
-                    id="navbarDropdownMenuAvatar"
-                    role="button"
-                    data-mdb-toggle="dropdown"
-                    aria-expanded="false"
-                    >
-                    <img
+                <MDBDropdown>
+                    <MDBDropdownToggle className='bg-transparent shadow-0 px-1'><img
                         src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
                         className="rounded-circle"
                         height="25"
                         alt="Black and White Portrait of a Man"
                         loading="lazy"
                     />
-                    </a>
-                    <ul
-                    className="dropdown-menu dropdown-menu-end"
-                    aria-labelledby="navbarDropdownMenuAvatar"
-                    >
-                    <li>
-                        <a className="dropdown-item" href="#">Mi cuenta</a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">Configuración</a>
-                    </li>
-                    <li>
-                        <a className="dropdown-item" href="#">Cerrar Sesión</a>
-                    </li>
-                    </ul>
-                </div>
+                    </MDBDropdownToggle>
+                    <MDBDropdownMenu>
+                        <MDBDropdownItem link childTag='button'>
+                            <Link to="/profile" target="_self">Mi cuenta</Link>
+                        
+                        </MDBDropdownItem>
+                        <MDBDropdownItem link childTag='button'>
+                            <Link to="/" target="_self">Salir</Link>
+                        </MDBDropdownItem>
+                        
+                    </MDBDropdownMenu>
+                </MDBDropdown>
+                
                 </div>
                 {/* <!-- Right elements --> */}
             </div>

@@ -110,7 +110,8 @@ function Home() {
                 {/*<!-- Modal login-->*/}
                 {/* <!-- Pills navs --> */}
                 <MDBModalDialog className="modal-dialog">
-                    <MDBModalContent className="px-5" id="contentModal">                          
+                    <MDBModalContent className="px-5" id="contentModal">    
+                    <div className="bg-primary decoracion"></div>                      
             <           MDBModalHeader className="justify-content-center">                          
                             <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                                 <li className="nav-item" role="presentation">
@@ -126,42 +127,42 @@ function Home() {
                         <MDBModalBody className="justify-content-center px-5">
                 {/* <!-- Pills navs --> */}
                             {/* <!-- Pills content --> */}
+                            
                             <div className="tab-content">
                             <div className={`tab-pane fade ${classLogin}`} id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+                                
                                 <form>
-                                <div className="text-center mb-3">
-                                    <p>Iniciar Sesión con:</p>
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-facebook-f"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-google"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-twitter"></i>
-                                    </button>
-
-                                    <button type="button" class="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-github"></i>
-                                    </button>
-                                </div>
-
-                                <p className="text-center">or:</p>
+                                
+                                <h2 className="text-center my-4 razon-social">MicroServices</h2>
 
                                 {/* <!-- Email input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="email" id="loginName" className="form-control" required />
-                                    <label className="form-label" for="loginName">Correo Electronico</label>
+                                    <input type="text" id="loginName" className="form-control rounded-5 icon-placeholder" required placeholder="  Username"/>
                                 </div>
 
                                 {/* <!-- Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="loginPassword" className="form-control" required/>
-                                    <label className="form-label" for="loginPassword">Contraseña</label>
+                                    <input type="password" id="loginPassword" className="form-control rounded-5 icon-placeholder" placeholder="  Password"required/>
+                                    
                                 </div>
+                                <div className="text-center mb-3">
+                                    <p>Conectar con:</p>
+                                    <button type="button" class="btn btn-link btn-floating mx-1 rounded-circle border">
+                                    <i className="fab fa-facebook-f"></i>
+                                    </button>
 
+                                    <button type="button" class="btn btn-link btn-floating mx-1  rounded-circle border">
+                                    <i className="fab fa-google"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1  rounded-circle border">
+                                    <i className="fab fa-twitter"></i>
+                                    </button>
+
+                                    <button type="button" class="btn btn-link btn-floating mx-1  rounded-circle border">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                    </button>
+                                </div>
                                 {/* <!-- 2 column grid layout --> */}
                                 <div className="row mb-4">
                                     <div className="col-md-6 d-flex justify-content-center">
@@ -192,63 +193,73 @@ function Home() {
                             <div className={`tab-pane fade ${classRegister}`} id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                                 <div className={classAlertSuccess}><p className="alert alert-success"><i className="fas fa-check-circle me-3"></i>Te has Registrado exitosamente! Verifica tu correo electronico e <a>Inicia Sesión</a></p></div>
                                 <form >
-                                <div className="text-center mb-3">
-                                    <p>Registrarse con:</p>
-                                    <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-facebook-f"></i>
-                                    </button>
-
-                                    <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-google"></i>
-                                    </button>
-
-                                    <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-twitter"></i>
-                                    </button>
-
-                                    <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-github"></i>
-                                    </button>
-                                </div>
+                                
 
                                 <p className="text-center">ó:</p>
 
                                 {/* <!-- Name input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerName" className="form-control" required/>
-                                    <label className="form-label" for="registerName">Nombre</label>
-                                    <input type="text" id="registerLastName" className="form-control" required/>
-                                    <label className="form-label" for="registerLastName">Apellido</label>
+                                    <input type="text" id="registerName" className="form-control icon-placeholder" required placeholder="  Nombres"/>  
+                                    
                                 </div>
-
+                                {/* <!-- Lastname input --> */}
+                                <div className="form-outline mb-4">
+                                    <input type="text" id="registerLastName" className="form-control icon-placeholder" required placeholder="  Apellidos" />
+                                    
+                                </div>
+                                {/* <!-- Telephone number input --> */}
+                                <div className="form-outline mb-4">
+                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Telefono"/>
+                                    
+                                </div>
+                                {/* <!-- Address number input --> */}
+                                <div className="form-outline mb-4">
+                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Direccion"/>
+                                    
+                                </div>
+                                {/* <!-- Document number input --> */}
+                                <div className="form-outline mb-4">
+                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Documento"/>                                    
+                                </div>
                                 {/* <!-- Username input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerUsername" className="form-control" required/>
-                                    <label className="form-label" for="registerUsername">Username</label>
+                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Username"/>
                                 </div>
 
                                 {/* <!-- Email input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="email" id="registerEmail" class="form-control" required/>
-                                    <label className="form-label" for="registerEmail">Email</label>
+                                    <input type="email" id="registerEmail" class="form-control icon-placeholder" required placeholder="  Email"/>
                                 </div>
 
                                 {/* <!-- Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="registerPassword" className="form-control" required/>
-                                    <label className="form-label" for="registerPassword">Password</label>
+                                    <input type="password" id="registerPassword" className="form-control icon-placeholder" required placeholder="  Password"/>
                                 </div>
 
                                 {/* <!-- Repeat Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="registerRepeatPassword" className="form-control" required/>
-                                    <label className="form-label" for="registerRepeatPassword">Repeat password</label>
+                                    <input type="password" id="registerRepeatPassword" className="form-control icon-placeholder" required placeholder="  Repeat Password"/>
                                 </div>
                                 
-                                <div className="form-outline mb-4">
-                                    <input type="text" id="registerUsername" className="form-control" required/>
-                                    <label className="form-label" for="registerUsername">Dirección</label>
+                                <div className="text-center mb-3">
+                                    <p>Conectar con:</p>
+                                    <button type="button" className="btn btn-link btn-floating mx-1  rounded-circle border">
+                                    <i className="fab fa-facebook-f"></i>
+                                    </button>
+
+                                    <button type="button" className="btn btn-link btn-floating mx-1  rounded-circle border">
+                                    <i className="fab fa-google"></i>
+                                    </button>
+
+                                    <button type="button" className="btn btn-link btn-floating mx-1  rounded-circle border">
+                                    <i className="fab fa-twitter"></i>
+                                    </button>
+
+                                    <button type="button" className="btn btn-link btn-floating mx-1  rounded-circle border">
+                                    <i className="fa-brands fa-linkedin-in"></i>
+                                    </button>
                                 </div>
+                                
                                 {/* <!-- Checkbox --> */}
                                 <div className="form-check d-flex justify-content-center mb-4">
                                     <input className="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
