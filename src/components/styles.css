@@ -108,7 +108,7 @@
   font-weight: 300;
 }
 .icon-placeholder::placeholder{
-  font-weight: 00;
+  font-weight: 600;
   font-family: "Font Awesome 5 Free";
   text-align: center;
 }

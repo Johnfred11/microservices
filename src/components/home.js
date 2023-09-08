@@ -3,6 +3,7 @@ import "./styles.css";
 import React, { useState } from 'react';
 import {Link, BrowserRouter} from 'react-router-dom';
 import {
+    MDBInput,
     MDBContainer,
     MDBNavbar,
     MDBNavbarBrand,
@@ -137,13 +138,13 @@ function Home() {
 
                                 {/* <!-- Email input --> */}
                                 <div className="form-outline mb-4">
+                                    <MDBInput label='Username' className="icon-placeholder" id='form1' type='text'required placeholder="  Username"/>
                                     <input type="text" id="loginName" className="form-control rounded-5 icon-placeholder" required placeholder="  Username"/>
                                 </div>
 
                                 {/* <!-- Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="loginPassword" className="form-control rounded-5 icon-placeholder" placeholder="  Password"required/>
-                                    
+                                    <MDBInput label='Password' className="icon-placeholder" id='form1' type='text'required placeholder="  Password"/>                                 
                                 </div>
                                 <div className="text-center mb-3">
                                     <p>Conectar con:</p>
@@ -192,53 +193,47 @@ function Home() {
                             </div>
                             <div className={`tab-pane fade ${classRegister}`} id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                                 <div className={classAlertSuccess}><p className="alert alert-success"><i className="fas fa-check-circle me-3"></i>Te has Registrado exitosamente! Verifica tu correo electronico e <a>Inicia Sesión</a></p></div>
+                                <h2 className="text-center my-4 razon-social">MicroServices</h2>
                                 <form >
-                                
-
-                                <p className="text-center">ó:</p>
-
                                 {/* <!-- Name input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerName" className="form-control icon-placeholder" required placeholder="  Nombres"/>  
-                                    
+                                    <MDBInput label='Nombres' className="icon-placeholder" id='form1' type='text'required placeholder="  Nombres"/> 
                                 </div>
                                 {/* <!-- Lastname input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerLastName" className="form-control icon-placeholder" required placeholder="  Apellidos" />
+                                    <MDBInput label='Apellidos' className="icon-placeholder" id='form1' type='text'required placeholder="  Apellidos"/> 
                                     
                                 </div>
                                 {/* <!-- Telephone number input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Telefono"/>
-                                    
+                                    <MDBInput label='Telefono' className="icon-placeholder" id='form1' type='text'required placeholder="  Telefono"/>
                                 </div>
                                 {/* <!-- Address number input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Direccion"/>
-                                    
+                                    <MDBInput label='Direccion' className="icon-placeholder" id='form1' type='text'required placeholder="  Direccion"/>                                   
                                 </div>
                                 {/* <!-- Document number input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Documento"/>                                    
+                                    <MDBInput label='Documento' className="icon-placeholder" id='form1' type='text'required placeholder="  Documento"/>                                     
                                 </div>
-                                {/* <!-- Username input --> */}
-                                <div className="form-outline mb-4">
-                                    <input type="text" id="registerUsername" className="form-control icon-placeholder" required placeholder="  Username"/>
-                                </div>
-
                                 {/* <!-- Email input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="email" id="registerEmail" class="form-control icon-placeholder" required placeholder="  Email"/>
+                                    <MDBInput label='Email' className="icon-placeholder" id='form1' type='email'required placeholder="  Email"/>  
                                 </div>
+
+                                {/* <!-- Username input --> */}
+                                <div className="form-outline mb-4">
+                                    <MDBInput label='Username' className="icon-placeholder" id='form1' type='text'required placeholder="  Username"/>  
+                                </div>                           
 
                                 {/* <!-- Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="registerPassword" className="form-control icon-placeholder" required placeholder="  Password"/>
+                                    <MDBInput label='Password' className="icon-placeholder" id='form1' type='password'required placeholder="  Password"/>  
                                 </div>
 
                                 {/* <!-- Repeat Password input --> */}
                                 <div className="form-outline mb-4">
-                                    <input type="password" id="registerRepeatPassword" className="form-control icon-placeholder" required placeholder="  Repeat Password"/>
+                                    <MDBInput label='Repeat Password' className="icon-placeholder" id='form1' type='password'required placeholder="  Repeat Password"/>  
                                 </div>
                                 
                                 <div className="text-center mb-3">

@@ -9,7 +9,7 @@ function ShowServices(){
                 <td>
                     <div className='d-flex align-items-center'>
                     <img
-                        src='https://img.freepik.com/vector-premium/concepto-icono-servicio-limpieza-o-dibujos-animados-planos-mantenimiento-hogar-limpieza_101884-1503.jpg?w=2000'
+                        src=' b'
                         alt=''
                         style={{ width: '45px', height: '45px' }}
                         className='rounded-4'

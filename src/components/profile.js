@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import AccountInformation from './AccountInformation';
 import orders from './services';
 import Header from './header';
-
+import MediosPago from './MediosPago';
 
 function sideBar(content){
     
@@ -51,13 +51,13 @@ function sideBar(content){
                                         <Link to="/findServices" className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>Solicitar servicio</Link>
                                     </li>
                                     <li className="list-group-item d-flex justify-content-start align-items-center p-3">
-                                        <i class="fas fa-bell"></i>
-                                        <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>Notificaciones</a>
+                                        <i class="fa-solid fa-circle-question"></i>
+                                        <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>Centro de ayuda</a>
                                     </li>
                                                 
                                     <li className="list-group-item d-flex justify-content-start align-items-center p-3">
                                         <i class="fas fa-credit-card"></i>
-                                        <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>Medios de pago</a>
+                                        <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}} onClick={() => content(MediosPago)}>Medios de pago</a>
                                     </li>
                                     </ul>
                                 </div>
