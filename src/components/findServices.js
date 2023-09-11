@@ -23,7 +23,7 @@ import {
   MDBTableBody
 } from 'mdb-react-ui-kit';
 
-
+import { Link } from "react-router-dom";
 
 export default function FindServices(){
     var [centredModal, setCentredModal] = useState(false);
@@ -31,17 +31,27 @@ export default function FindServices(){
     var toggleShow = () => {
         setCentredModal(!centredModal);
         console.log("funciona"+centredModal);
+        setClassModalServicio("d-block");
+        setModalTrabajadores("d-none");
+        setModalFinalizarSolicitud("d-none");
     };
     var [classModalServicio, setClassModalServicio] = useState("d-block");
     var [classModalTrabajadores, setModalTrabajadores] = useState("d-none");
+    var [classModalFinalizarSolicitud, setModalFinalizarSolicitud] = useState("d-none");
     var changeModal = (accion) => {
         
-        if(accion == "cerrar"){
+        if(accion == 1){
             setClassModalServicio("d-block");
             setModalTrabajadores("d-none");
-        }if(accion=="abrir"){
+            setModalFinalizarSolicitud("d-none");
+        }if(accion==2){
             setClassModalServicio("d-none");
             setModalTrabajadores("d-block");
+            setModalFinalizarSolicitud("d-none");
+        }if(accion==3){
+            setClassModalServicio("d-none");
+            setModalTrabajadores("d-none");
+            setModalFinalizarSolicitud("d-block");
         }
     };
     return(
@@ -157,8 +167,8 @@ export default function FindServices(){
                             </nav>
                         </div>
                         <div className="col-10">
-                            <div className="d-flex justify-content-end pe-4">
-                                <div className="form-outline">
+                            <div className="d-flex justify-content-end pe-4 col-3 ms-5 mb-3">
+                                <div className="form-outline col-4">
                                     <select className="form-select form-select-sm">
                                         <option >Ordenar por:</option>
                                         <option >Nombre</option>
@@ -169,11 +179,11 @@ export default function FindServices(){
                                 </div>
                             </div>
                             <MDBModal tabIndex='-1' show={centredModal} setShow={setCentredModal}>
-                            <MDBModalDialog centered scrollable size="lg">
+                            <MDBModalDialog centered  size="lg">
                             
                                 <DetalleServicio/>
                                 <MostrarTrabajadores/>
-                        
+                                <SeleccionarFinalizarSolicitud/>
                             </MDBModalDialog>
                             </MDBModal>            
                             <div className="d-flex flex-wrap container-fluid justify-content-around">
@@ -272,7 +282,7 @@ export default function FindServices(){
                     <MDBBtn color='secondary' onClick={toggleShow}>
                         Cancelar
                     </MDBBtn>
-                    <MDBBtn onClick={()=>changeModal("abrir")}>Solicitar</MDBBtn>
+                    <MDBBtn onClick={()=>changeModal(2)}>Solicitar</MDBBtn>
                 </MDBModalFooter>
              </MDBModalContent>
 
@@ -281,10 +291,10 @@ export default function FindServices(){
     function MostrarTrabajadores(){
         return(
 
-                <MDBModalContent className={classModalTrabajadores}>
+                <MDBModalContent scrollable className={classModalTrabajadores}>
                 <MDBModalHeader>
                     
-                    <MDBModalTitle>Electricidad</MDBModalTitle>
+                    <MDBModalTitle>Seleccione al tecnico</MDBModalTitle>
                           
                     <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
                 </MDBModalHeader>
@@ -293,10 +303,9 @@ export default function FindServices(){
                     <MDBTable align='middle'>
                     <MDBTableHead>
                         <tr>
-                        <th scope='col'>Name</th>
-                        <th scope='col'>Title</th>
-                        <th scope='col'>Status</th>
-                        <th scope='col'>Position</th>
+                        <th scope='col'>Nombre</th>
+                        <th scope='col'>Area u ocupación</th>
+                        <th scope='col'>Perfil</th>
                         <th scope='col'>Actions</th>
                         </tr>
                     </MDBTableHead>
@@ -317,83 +326,20 @@ export default function FindServices(){
                             </div>
                         </td>
                         <td>
-                            <p className='fw-normal mb-1'>Software engineer</p>
-                            <p className='text-muted mb-0'>IT department</p>
+                            <p className='fw-normal mb-1'>Tecnico en electricidad domestica</p>
                         </td>
                         <td>
                             <MDBBadge color='success' pill>
-                            Active
+                            Ver
                             </MDBBadge>
                         </td>
-                        <td>Senior</td>
                         <td>
-                            <MDBBtn color='link' rounded size='sm'>
-                            Edit
+                            <MDBBtn color='link' rounded size='sm' onClick={()=>changeModal(3)}>
+                            Seleccionar
                             </MDBBtn>
                         </td>
                         </tr>
-                        <tr>
-                        <td>
-                            <div className='d-flex align-items-center'>
-                            <img
-                                src='https://mdbootstrap.com/img/new/avatars/6.jpg'
-                                alt=''
-                                style={{ width: '45px', height: '45px' }}
-                                className='rounded-circle'
-                            />
-                            <div className='ms-3'>
-                                <p className='fw-bold mb-1'>Alex Ray</p>
-                                <p className='text-muted mb-0'>alex.ray@gmail.com</p>
-                            </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p className='fw-normal mb-1'>Consultant</p>
-                            <p className='text-muted mb-0'>Finance</p>
-                        </td>
-                        <td>
-                            <MDBBadge color='primary' pill>
-                            Onboarding
-                            </MDBBadge>
-                        </td>
-                        <td>Junior</td>
-                        <td>
-                            <MDBBtn color='link' rounded size='sm'>
-                            Edit
-                            </MDBBtn>
-                        </td>
-                        </tr>
-                        <tr>
-                        <td>
-                            <div className='d-flex align-items-center'>
-                            <img
-                                src='https://mdbootstrap.com/img/new/avatars/7.jpg'
-                                alt=''
-                                style={{ width: '45px', height: '45px' }}
-                                className='rounded-circle'
-                            />
-                            <div className='ms-3'>
-                                <p className='fw-bold mb-1'>Kate Hunington</p>
-                                <p className='text-muted mb-0'>kate.hunington@gmail.com</p>
-                            </div>
-                            </div>
-                        </td>
-                        <td>
-                            <p className='fw-normal mb-1'>Designer</p>
-                            <p className='text-muted mb-0'>UI/UX</p>
-                        </td>
-                        <td>
-                            <MDBBadge color='warning' pill>
-                            Awaiting
-                            </MDBBadge>
-                        </td>
-                        <td>Senior</td>
-                        <td>
-                            <MDBBtn color='link' rounded size='sm'>
-                            Edit
-                            </MDBBtn>
-                        </td>
-                        </tr>
+                        
                     </MDBTableBody>
                     </MDBTable>
                 </MDBModalBody>
@@ -401,7 +347,85 @@ export default function FindServices(){
                     <MDBBtn color='secondary' onClick={toggleShow}>
                         Cancelar
                     </MDBBtn>
-                    <MDBBtn onClick={()=>changeModal("cerrar")}>Atras</MDBBtn>
+                    <MDBBtn onClick={()=>changeModal(1)}>Atras</MDBBtn>
+                </MDBModalFooter>
+                </MDBModalContent>
+            
+        
+        );
+    }
+    function SeleccionarFinalizarSolicitud(){
+        return(
+
+                <MDBModalContent scrollable className={classModalFinalizarSolicitud}>
+                <MDBModalHeader>
+                    
+                    <MDBModalTitle>Detalle de la solicitud</MDBModalTitle>
+                          
+                    <MDBBtn className='btn-close' color='none' onClick={toggleShow}></MDBBtn>
+                </MDBModalHeader>
+                <MDBModalBody>
+                    
+                    <MDBCard>
+                    <MDBCardBody>
+                        <MDBCardTitle>Servicio Seleccionado</MDBCardTitle>
+                        <MDBCardText>
+                            <MDBCardText>Instalación y/o reparación</MDBCardText>
+                            <MDBCardImage position='top' alt='...' src='https://cenacap.edu.co/wp-content/uploads/2021/12/electricidad-residencial.jpg' />  
+                            <p className="p-3">
+                            Instalacion y/o reparacion de tomacorrientes, interruptores y breaks. Precio por unidad. Servicio tecnico por obra labor.
+                            </p>
+                            <MDBCardText className="text-end me-3">$15.000</MDBCardText>
+                        </MDBCardText>
+                        <MDBBtn>cambiar</MDBBtn>
+                        <hr />
+                        <MDBCardText>Tecnicó Seleccionado</MDBCardText>
+                        <MDBModalHeader>
+                </MDBModalHeader>
+                    
+                    <MDBTable align='middle'>
+                    <MDBTableHead>
+                        <tr>
+                        <th scope='col'>Nombre</th>
+                        <th scope='col'>Area u ocupación</th>
+                        </tr>
+                    </MDBTableHead>
+                    <MDBTableBody>
+                        <tr>
+                        <td>
+                            <div className='d-flex align-items-center'>
+                            <img
+                                src='https://mdbootstrap.com/img/new/avatars/8.jpg'
+                                alt=''
+                                style={{ width: '45px', height: '45px' }}
+                                className='rounded-circle'
+                            />
+                            <div className='ms-3'>
+                                <p className='fw-bold mb-1'>John Doe</p>
+                                <p className='text-muted mb-0'>john.doe@gmail.com</p>
+                            </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p className='fw-normal mb-1'>Tecnico en electricidad domestica</p>
+                        </td>
+                        </tr>
+                        
+                    </MDBTableBody>
+                    </MDBTable>
+                    </MDBCardBody>
+                    </MDBCard>
+                </MDBModalBody>
+                <MDBModalFooter>
+                <Link to="/solicitud" className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}}>
+                <MDBBtn onClick={()=>changeModal(2)}>Añadir al carrito</MDBBtn>
+                    </Link>
+                
+
+                    <MDBBtn color='secondary' onClick={toggleShow}>
+                        Cancelar
+                    </MDBBtn>
+                    <MDBBtn onClick={()=>changeModal(2)}>Atras</MDBBtn>
                 </MDBModalFooter>
                 </MDBModalContent>
             
