@@ -8,12 +8,7 @@ function ShowServices(){
             <tr>
                 <td>
                     <div className='d-flex align-items-center'>
-                    <img
-                        src=' b'
-                        alt=''
-                        style={{ width: '45px', height: '45px' }}
-                        className='rounded-4'
-                    />
+                    
                     <div className='ms-3'>
                         <p className='fw-bold mb-1'>Servicios Generales</p>
                         <p className='text-muted mb-0'>Empresarial</p>

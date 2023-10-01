@@ -189,9 +189,7 @@ export default function FindServices(){
                             <div className="d-flex flex-wrap container-fluid justify-content-around">
                                 <div className="col-5 mx-2 my-2">
                                     <MDBCard className="d-flex flex-row" > 
-                                        <div className="container-fluid  w-30">
-                                            <MDBCardImage position='top' alt='...' src='https://cenacap.edu.co/wp-content/uploads/2021/12/electricidad-residencial.jpg' />
-                                        </div>
+                                
                                         <div className="container-fluid  w-70">
                                         <MDBCardHeader>Electricidad</MDBCardHeader>
                                         <MDBCardBody>
@@ -206,9 +204,7 @@ export default function FindServices(){
                                 </div>
                                 <div className="col-5 mx-2 my-2">
                                     <MDBCard className="d-flex flex-row" onClick={toggleShow}>
-                                        <div className="container-fluid  w-30">
-                                            <MDBCardImage position='top' alt='...' src='https://img.freepik.com/vector-premium/concepto-icono-servicio-limpieza-o-dibujos-animados-planos-mantenimiento-hogar-limpieza_101884-1503.jpg?w=2000' />
-                                        </div>
+                                        
                                         <div className="container-fluid  w-70">
                                         <MDBCardHeader>Limpieza y aseo</MDBCardHeader>
                                         <MDBCardBody>
@@ -224,9 +220,7 @@ export default function FindServices(){
                                 </div>
                                 <div className="col-5 mx-2 my-2">
                                     <MDBCard className="d-flex flex-row">
-                                        <div className="container-fluid  w-30">
-                                            <MDBCardImage position='top' alt='...' src='https://mdbootstrap.com/img/new/standard/city/062.webp' />
-                                        </div>
+                                        
                                         <div className="container-fluid  w-70">
                                         <MDBCardHeader>Featured</MDBCardHeader>
                                         <MDBCardBody>
@@ -239,9 +233,7 @@ export default function FindServices(){
                                 </div>
                                 <div className="col-5 mx-2 my-2">
                                     <MDBCard className="d-flex flex-row" >
-                                        <div className="container-fluid  w-30">
-                                            <MDBCardImage position='top' alt='...' src='https://mdbootstrap.com/img/new/standard/city/062.webp' />
-                                        </div>
+                                        
                                         <div className="container-fluid  w-70">
                                         <MDBCardHeader>Featured</MDBCardHeader>
                                         <MDBCardBody>

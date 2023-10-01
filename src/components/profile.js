@@ -1,7 +1,7 @@
 import {Link, Routes, BrowserRouter} from 'react-router-dom';
 import React, { useState } from 'react';
 
-import AccountInformation from './AccountInformation';
+import {AccountInformation} from './AccountInformation';
 import orders from './services';
 import Header from './header';
 import MediosPago from './MediosPago';

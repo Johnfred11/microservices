@@ -1,7 +1,7 @@
 
 
 
-function AccountInformation(){
+export function AccountInformation(){
     return(
         <>
         <h2 className="text-center">Información personal</h2>
@@ -108,7 +108,7 @@ function AccountInformation(){
     )
 }
 
-function AccountInformationTrabajador(){
+export function AccountInformationTrabajador(){
     return(
         <>
         <h2 className="text-center">Información personal</h2>
@@ -242,4 +242,3 @@ function AccountInformationTrabajador(){
     )
 }
 
-export default (AccountInformation(), AccountInformationTrabajador());

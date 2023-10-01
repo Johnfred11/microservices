@@ -1,5 +1,5 @@
 import Header from "./header";
-import AccountInformationTrabajador from "./AccountInformation";
+import {AccountInformationTrabajador} from "./AccountInformation";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
