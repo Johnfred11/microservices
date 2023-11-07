@@ -26,7 +26,7 @@ En MicroServices, estamos comprometidos con dos objetivos principales:
 
 En MicroServices, no solo estamos construyendo una plataforma, sino también creando relaciones de valor entre aquellos que ofrecen sus habilidades y aquellos que las necesitan. Únete a nosotros en esta emocionante aventura y experimenta una forma más eficiente y confiable de acceder a servicios profesionales.
 
-## Despliegue de la Aplicación React desde GitHub
+## Despliegue de la Aplicación React
 
 Siga estos pasos para desplegar la aplicación React que se encuentra en este repositorio en su propio entorno local.
 
@@ -39,23 +39,11 @@ Asegúrese de tener lo siguiente instalado en su sistema antes de comenzar:
 
 ### Pasos para el Despliegue
 
-1. **Clonar el Repositorio:**
-
-   Abra una terminal o línea de comandos y ejecute el siguiente comando para clonar este repositorio en su máquina local:
-
-   ```bash
-   git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git 
-   ```
-   
-
-Reemplace TU_USUARIO y TU_REPOSITORIO con sus propios datos de usuario y repositorio.
-
 Instalar Dependencias:
 
-Navegue al directorio de la aplicación clonada:
+Navegue al directorio del proyecto:
 
-   
-    cd TU_REPOSITORIO 
+   cd TU_REPOSITORIO 
 
 Luego, instale las dependencias necesarias ejecutando el siguiente comando:
 
@@ -63,9 +51,6 @@ Luego, instale las dependencias necesarias ejecutando el siguiente comando:
     npm install 
     
 
-Configurar Variables de Entorno:
-
-Si su aplicación utiliza variables de entorno (por ejemplo, para configurar las API), cree un archivo .env en la raíz del proyecto y configure las variables según sea necesario.
 
 Iniciar la Aplicación:
 

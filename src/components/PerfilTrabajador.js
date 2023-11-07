@@ -1,5 +1,6 @@
 import Header from "./header";
 import {AccountInformationTrabajador} from "./AccountInformation";
+import Empleos from "./Empleos";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -53,7 +54,7 @@ function sideBar(content){
                                     </li>
                                     <li className="list-group-item d-flex justify-content-start align-items-center p-3">
                                     <i class="fa-solid fa-bag-shopping"></i>
-                                        <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}} onClick={() => content()}>Empleos</a>
+                                        <a className="mx-5 mb-0 text-decoration-none" style={{cursor: "pointer"}} onClick={() => content(Empleos)}>Empleos</a>
                                     </li>            
                                     <li className="list-group-item d-flex justify-content-start align-items-center p-3">
                                         <i class="fas fa-credit-card"></i>
